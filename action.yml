@@ -1,5 +1,5 @@
 name: 'Package OpenWrt with flippy script'
-author: 'mingxiaoyu'
+author: 'doctor-design'
 description: 'Use the flippy script package Armvirt as OpenWrt'
 inputs:
   types:
