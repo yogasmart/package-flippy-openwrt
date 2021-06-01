@@ -7,7 +7,7 @@
 #=====================================================================================
 
 WORK_DIR="${PWD}"
-KERNEL_URL="https://github.com/mingxiaoyu/flippy-packages/trunk"
+KERNEL_URL="https://github.com/doctor-design/flippy-packages/trunk"
 
 # from https://blog.csdn.net/czyt1988/article/details/79110450
 ARGS=`getopt -o t:k:v:w:p:o:l:s: --long types:,kernel:,openwrt:,whoami:,path:,out:,url:sub -- "$@"`
@@ -73,12 +73,12 @@ fi
 
 if [ $KERNEL_VERSION == "Latest" ];then
 	rm -rf Latest
-	wget https://raw.githubusercontent.com/mingxiaoyu/flippy-packages/main/Latest
+	wget https://raw.githubusercontent.com/doctor-design/flippy-packages/main/Latest
 	KERNEL_VERSION=$(cat Latest)	
 fi
 
 if [ -z $WHOAMI ];then
-    WHOAMI="mingxiaoyu"
+    WHOAMI="doctor"
 fi
 
 if [ -z $OUT ];then
