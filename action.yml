@@ -16,7 +16,7 @@ inputs:
     default: Latest
   whoami:
     description: 'The name of build the openwrt'
-    required: false
+    required: true
     default: doctor
   out:
     description: 'The output path of the openwrt'
