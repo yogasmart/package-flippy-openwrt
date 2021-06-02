@@ -9,14 +9,14 @@ inputs:
   openwrt-version:
     description: 'The openwrt version'
     required: false
-    default: R21.4.18
+    default: R21.6.1
   kernel-version:
     description: 'The kernel version'
     required: false
     default: Latest
   whoami:
     description: 'The name of build the openwrt'
-    required: true
+    required: false
     default: doctor
   out:
     description: 'The output path of the openwrt'
