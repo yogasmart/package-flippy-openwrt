@@ -40,4 +40,4 @@
     sub-name: # optional
  ```
 # 感谢
- * [mingxiaoyu](https://github.com/mingxiaoyu)
+ * [mingxiaoyu](https://github.com/mingxiaoyu/package-flippy-openwrt)
