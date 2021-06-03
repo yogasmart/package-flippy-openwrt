@@ -40,6 +40,4 @@
     sub-name: # optional
  ```
 # 感谢
- * [flippy](https://www.right.com.cn/forum/space-uid-285101.html)
- * [coolsnowwolf/Lede](https://github.com/coolsnowwolf/lede)
  * [mingxiaoyu](https://github.com/mingxiaoyu)
