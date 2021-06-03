@@ -53,6 +53,7 @@ jobs:
       with:
         types: s905d
         openwrt-version: R21.6.1
+        whoami: doctor
         out: ${{ env.UPLOAD }}
         sub-name: path
         openwrt-path: $GITHUB_WORKSPACE/openwrt
@@ -63,6 +64,7 @@ jobs:
       with:
         types: s905d
         openwrt-version: R21.6.1
+        whoami:doctor
         out: ${{ env.UPLOAD }}
         sub-name: path2
         openwrt-path: openwrt
@@ -73,6 +75,7 @@ jobs:
       with:
         types: s905d
         openwrt-version: R21.6.1
+        whoami:doctor
         out: ${{ env.UPLOAD }}
         sub-name: url
         openwrt-url: ${{ env.URL }}
