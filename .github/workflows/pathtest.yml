@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 env:
-  URL: https://github.com/doctor-design/N1-Actions-OpenWrt/releases/download/2021.05.28-1900/openwrt-armvirt-64-default-rootfs.tar.gz
+  URL: https://github.com/doctor-design/N1-Actions-OpenWrt/releases/download/2021.06.03-0512/openwrt-armvirt-64-default-rootfs.tar.gz
 
 jobs:
   build:
