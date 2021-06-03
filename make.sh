@@ -65,7 +65,7 @@ if [ -z $TYPES ];then
     TYPES="n1"
 fi
 if [ -z $OPENWRT_VERSION ];then
-	OPENWRT_VERSION="R21.6.1"
+	OPENWRT_VERSION="R21.4.18"
 fi
 if [ -z $KERNEL_VERSION ];then
     KERNEL_VERSION="Latest"
@@ -78,7 +78,7 @@ if [ $KERNEL_VERSION == "Latest" ];then
 fi
 
 if [ -z $WHOAMI ];then
-    WHOAMI="doctor"
+    WHOAMI="mingxiaoyu"
 fi
 
 if [ -z $OUT ];then
