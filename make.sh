@@ -76,7 +76,7 @@ if [ $KERNEL_VERSION == "Latest" ];then
 	wget https://raw.githubusercontent.com/doctor-design/flippy-packages/main/Latest
 	KERNEL_VERSION=$(cat Latest)	
 else
-        KERNEL_VERSION=$(KERNEL_VERSION)+
+        KERNEL_VERSION=$KERNEL_VERSION+
 fi
 
 if [ -z $WHOAMI ];then
