@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 env:
-  URL: https://github.com/doctor-design/N1Openwrt/releases/download/2021060310/openwrt_s905d_n1_R21.6.1_k5.4.123-flippy-59+o.img.gz
+  URL: https://github.com/yogasmart/N1Openwrt/releases/download/2021060310/openwrt_s905d_n1_R21.6.1_k5.4.123-flippy-59+o.img.gz
 
 jobs:
   build:
@@ -48,7 +48,7 @@ jobs:
         ls
 
     - name: Package OpenWrt with flippy script by Path
-      uses: doctor-design/package-flippy-openwrt@dev
+      uses: yogasmart/package-flippy-openwrt@dev
       id: package-path
       with:
         types: s905d
@@ -59,7 +59,7 @@ jobs:
         openwrt-path: $GITHUB_WORKSPACE/openwrt
 
     - name: Package OpenWrt with flippy script by Path
-      uses: doctor-design/package-flippy-openwrt@dev
+      uses: yogasmart/package-flippy-openwrt@dev
       id: package-path2
       with:
         types: s905d
@@ -70,7 +70,7 @@ jobs:
         openwrt-path: openwrt
         
     - name: Package OpenWrt with flippy script by URL
-      uses: doctor-design/package-flippy-openwrt@dev
+      uses: yogasmart/package-flippy-openwrt@dev
       id: package-url
       with:
         types: s905d
