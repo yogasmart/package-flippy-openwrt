@@ -122,8 +122,8 @@ get_kernel(){
 #	KERNEL_FOLDER_NAME=$(echo ${KERNEL_VERSION/+o/-o})
 	KERNEL_FOLDER_NAME=$(echo ${KERNEL_VERSION})
 	svn co ${KERNEL_URL}/${KERNEL_FOLDER_NAME}/kernel  >/dev/null 2>&1
-	workdir=$(cd $(dirname $0); pwd)
-	ls
+	workdirthis=$(cd $(dirname $0); pwd)
+	pwd
 	cp -r kernel/* /opt/kernel
 }
 
