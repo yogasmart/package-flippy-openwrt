@@ -48,7 +48,7 @@ jobs:
         ls
 
     - name: Package OpenWrt with flippy script by Path
-      uses: yogasmart/package-flippy-openwrt@dev
+      uses: yogasmart/package-flippy-openwrt@main
       id: package-path
       with:
         types: s905d
@@ -59,7 +59,7 @@ jobs:
         openwrt-path: $GITHUB_WORKSPACE/openwrt
 
     - name: Package OpenWrt with flippy script by Path
-      uses: yogasmart/package-flippy-openwrt@dev
+      uses: yogasmart/package-flippy-openwrt@main
       id: package-path2
       with:
         types: s905d
@@ -70,7 +70,7 @@ jobs:
         openwrt-path: openwrt
         
     - name: Package OpenWrt with flippy script by URL
-      uses: yogasmart/package-flippy-openwrt@dev
+      uses: yogasmart/package-flippy-openwrt@main
       id: package-url
       with:
         types: s905d
