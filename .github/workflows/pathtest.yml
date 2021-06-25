@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
 
 env:
-  URL: https://github.com/yogasmart/N1Openwrt/releases/download/2021060310/openwrt_s905d_n1_R21.6.1_k5.4.123-flippy-59+o.img.gz
-
+#  URL: https://github.com/yogasmart/N1Openwrt/releases/download/2021060310/openwrt_s905d_n1_R21.6.1_k5.4.123-flippy-59+o.img.gz
+   URL: https://github.com/yogasmart/N1Openwrt/releases/download/2021062507/openwrt-armvirt-64-default-rootfs.tar.gz
 jobs:
   build:
     runs-on: ubuntu-20.04
@@ -52,7 +52,7 @@ jobs:
       id: package-path
       with:
         types: s905d
-        openwrt-version: R21.6.1
+        openwrt-version: R21.6.22
         whoami: doctor
         out: ${{ env.UPLOAD }}
         sub-name: path
@@ -63,7 +63,7 @@ jobs:
       id: package-path2
       with:
         types: s905d
-        openwrt-version: R21.6.1
+        openwrt-version: R21.6.22
         whoami: doctor
         out: ${{ env.UPLOAD }}
         sub-name: path2
@@ -74,7 +74,7 @@ jobs:
       id: package-url
       with:
         types: s905d
-        openwrt-version: R21.6.1
+        openwrt-version: R21.6.22
         whoami: doctor
         out: ${{ env.UPLOAD }}
         sub-name: url
