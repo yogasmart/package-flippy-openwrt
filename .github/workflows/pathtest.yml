@@ -5,7 +5,7 @@ on:
 
 env:
 #  URL: https://github.com/yogasmart/N1Openwrt/releases/download/2021060310/openwrt_s905d_n1_R21.6.1_k5.4.123-flippy-59+o.img.gz
-   URL: https://github.com/yogasmart/N1Openwrt/releases/download/2021062507/openwrt-armvirt-64-default-rootfs.tar.gz
+   URL: https://github.com/yogasmart/N1Openwrt/releases/download/2021062600/openwrt-armvirt-64-default-rootfs.tar.gz
 jobs:
   build:
     runs-on: ubuntu-20.04
