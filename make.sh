@@ -115,14 +115,16 @@ KERNEL_VERSION="${KERNEL_VERSION}"
 KERNEL_PKG_HOME="/opt/kernel"
 SFE_FLAG=0
 FLOWOFFLOAD_FLAG=1
+ENABLE_WIFI_K504=1
+ENABLE_WIFI_K510=1
 EOF
 }
 
 get_kernel(){
-#	KERNEL_FOLDER_NAME=$(echo ${KERNEL_VERSION/+o/-o})
-	KERNEL_FOLDER_NAME=$(echo ${KERNEL_VERSION})
-	svn co ${KERNEL_URL}/${KERNEL_FOLDER_NAME}/kernel  >/dev/null 2>&1
-	cp -r kernel/* /opt/kernel
+        KERNEL_FOLDER_NAME=$(echo ${KERNEL_VERSION/+o/-o})
+        KERNEL_FOLDER_NAME=$(echo ${KERNEL_FOLDER_NAME} | sed 's/+//g')
+        svn co ${KERNEL_URL}/${KERNEL_FOLDER_NAME}/kernel >/dev/null 2>&1
+        cp -r kernel/* /opt/kernel
 }
 
 get_packefile(){

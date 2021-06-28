@@ -1,4 +1,4 @@
-name: package test
+name: shell test
 
 on:
   workflow_dispatch:
@@ -9,7 +9,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-18.04
-    name: test
+    name: shell test
   
     steps:   
     - name: Initialization environment
@@ -46,45 +46,20 @@ jobs:
         cd openwrt
         echo "current:${PWD}"
         ls
-
-    - name: Package OpenWrt with flippy script by Path
-      uses: yogasmart/package-flippy-openwrt@dev
-      id: package-path
-      with:
-        types: s905d
-        out: ${{ env.UPLOAD }}
-        sub-name: path
-        openwrt-path: $GITHUB_WORKSPACE/openwrt
-
-    - name: Package OpenWrt with flippy script by Path
-      uses: yogasmart/package-flippy-openwrt@dev
-      id: package-path2
-      with:
-        types: s905d
-        out: ${{ env.UPLOAD }}
-        sub-name: path2
-        kernel-version: latest+
-        openwrt-path: openwrt
-        
+      
     - name: Package OpenWrt with flippy script by URL
-      uses: yogasmart/package-flippy-openwrt@dev
+      uses: yogasmart/package-flippy-openwrt@shell
       id: package-url
       with:
         types: s905d
         out: ${{ env.UPLOAD }}
         sub-name: url
+        kernel-version: 5.12.13-flippy-61+
         openwrt-url: ${{ env.URL }}
         
     - name: check
-      run: |
-        echo "path-out:${{ steps.package-path.outputs.out }}"
-        echo "path-status:${{ steps.package-path.outputs.status }}"
-        
+      run: |        
         echo "url-out:${{ steps.package-url.outputs.out }}"
         echo "url-status:${{ steps.package-url.outputs.status }}"
-        
-    - name: Upload
-      uses: actions/upload-artifact@master
-      with:
-        name: upload
-        path: ${{env.UPLOAD}}
+        cd $UPLOAD
+        ls
