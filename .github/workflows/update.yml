@@ -13,10 +13,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: Update files
         run: |
-          rm -rf opt/openwrt
+          rm -rf build/opt/openwrt
           git clone --depth=1 https://github.com/unifreq/openwrt_packit.git
-          mv openwrt_packit opt/openwrt
-          rm -rf opt/openwr/.git
+          mv openwrt_packit build/opt/openwrt
+          rm -rf build/opt/openwr/.git
           rm -rf opt/openwr/.gitignore
           
       - name: GitHub Commit & Push
