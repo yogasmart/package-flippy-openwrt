@@ -74,7 +74,7 @@ fi
 if [ $KERNEL_VERSION == "Latest" ];then
 	rm -rf Latest
 #	wget https://raw.githubusercontent.com/yogasmart/flippy-packages/main/Latest
-	wget https://raw.githubusercontent.com/yogasmart/build/Latest
+	wget build/Latest
 	KERNEL_VERSION=$(cat Latest)	
 fi
 
