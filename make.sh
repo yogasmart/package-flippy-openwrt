@@ -126,12 +126,12 @@ get_kernel(){
          KERNEL_FOLDER_NAME=$(echo ${KERNEL_VERSION})
 #        svn co ${KERNEL_URL}/${KERNEL_FOLDER_NAME}/kernel >/dev/null 2>&1
 #         svn co build/${KERNEL_FOLDER_NAME}/kernel >/dev/null 2>&1
-        cp -r build/${KERNEL_FOLDER_NAME}/kernel/* /opt/kernel
+        cp -r /build/${KERNEL_FOLDER_NAME}/kernel/* /opt/kernel
 }
 
 get_packefile(){
 #	svn co ${KERNEL_URL}/opt  >/dev/null 2>&1
-	cp -r build/${KERNEL_FOLDER_NAME}/opt/* /opt
+	cp -r /build/${KERNEL_FOLDER_NAME}/opt/* /opt
 }
 
 get_openwrt_from_url(){
