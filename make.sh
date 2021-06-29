@@ -107,7 +107,7 @@ SCRIPT_S912_FILE="mk_s912_zyxq.sh"
 SCRIPT_S022X_FILE="mk_s922x_gtking.sh"
 
 create_makeenv(){
-	cd /opt/openwrt
+	cd /build/opt/openwrt
 	rm -f make.env 2>/dev/null
 cat > make.env <<EOF
 WHOAMI="${WHOAMI}"
@@ -124,15 +124,15 @@ EOF
 get_kernel(){
 #        KERNEL_FOLDER_NAME=$(echo ${KERNEL_VERSION/+o/-o})
 #        KERNEL_FOLDER_NAME=$(echo ${KERNEL_FOLDER_NAME} | sed 's/+//g')
-#        svn co ${KERNEL_URL}/${KERNEL_FOLDER_NAME}/kernel >/dev/null 2>&1
          KERNEL_FOLDER_NAME=$(echo ${KERNEL_VERSION})
+#        svn co ${KERNEL_URL}/${KERNEL_FOLDER_NAME}/kernel >/dev/null 2>&1
 #         svn co build/${KERNEL_FOLDER_NAME}/kernel >/dev/null 2>&1
-        cp -r build/kernel/* /opt/kernel
+        cp -r build/${KERNEL_FOLDER_NAME}/kernel/* /opt/kernel
 }
 
 get_packefile(){
 #	svn co ${KERNEL_URL}/opt  >/dev/null 2>&1
-	cp -r build/opt/* /opt
+	cp -r build/${KERNEL_FOLDER_NAME}/opt/* /opt
 }
 
 get_openwrt_from_url(){
