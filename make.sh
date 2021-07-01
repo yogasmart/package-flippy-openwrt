@@ -72,7 +72,7 @@ if [ -z $KERNEL_VERSION ];then
 fi
 
 if [ $KERNEL_VERSION == "Latest" ];then
-	rm -rf Latest
+	rm -rf build/Latest
 	wget https://raw.githubusercontent.com/yogasmart/package-flippy-openwrt/main/build/Latest
 	KERNEL_VERSION=$(cat Latest)	
 fi
@@ -126,12 +126,12 @@ get_kernel(){
          KERNEL_FOLDER_NAME=$(echo ${KERNEL_VERSION})
 #        svn co ${KERNEL_URL}/${KERNEL_FOLDER_NAME}/kernel >/dev/null 2>&1
 #         svn co build/${KERNEL_FOLDER_NAME}/kernel >/dev/null 2>&1
-        cp -r /build/${KERNEL_FOLDER_NAME}/kernel/* /opt/kernel
+        cp -r /build/${KERNEL_FOLDER_NAME}/kernel/* /build/opt/kernel
 }
 
 get_packefile(){
 #	svn co ${KERNEL_URL}/opt  >/dev/null 2>&1
-	cp -r /build/${KERNEL_FOLDER_NAME}/opt/* /opt
+	cp -r /build/${KERNEL_FOLDER_NAME}/opt/* /build/opt
 }
 
 get_openwrt_from_url(){
