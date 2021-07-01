@@ -118,6 +118,9 @@ FLOWOFFLOAD_FLAG=1
 ENABLE_WIFI_K504=1
 ENABLE_WIFI_K510=1
 EOF
+pwd
+ls
+cat Latest
 }
 
 get_kernel(){
