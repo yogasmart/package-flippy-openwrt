@@ -106,7 +106,7 @@ SCRIPT_S912_FILE="mk_s912_zyxq.sh"
 SCRIPT_S022X_FILE="mk_s922x_gtking.sh"
 
 create_makeenv(){
-	cd /build/opt/openwrt
+	cd build/opt/openwrt
 	rm -f make.env 2>/dev/null
 cat > make.env <<EOF
 WHOAMI="${WHOAMI}"
