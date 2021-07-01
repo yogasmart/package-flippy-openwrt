@@ -120,20 +120,24 @@ ENABLE_WIFI_K510=1
 EOF
 pwd
 ls
-cat Latest
+cat make.env
 }
 
 get_kernel(){
 #        KERNEL_FOLDER_NAME=$(echo ${KERNEL_VERSION/+o/-o})
 #        KERNEL_FOLDER_NAME=$(echo ${KERNEL_FOLDER_NAME} | sed 's/+//g')
-         KERNEL_FOLDER_NAME=$(echo ${KERNEL_VERSION})
+        KERNEL_FOLDER_NAME=$(echo ${KERNEL_VERSION})
 #        svn co ${KERNEL_URL}/${KERNEL_FOLDER_NAME}/kernel >/dev/null 2>&1
 #         svn co build/${KERNEL_FOLDER_NAME}/kernel >/dev/null 2>&1
+        pwd
+	ls
         cp -r /build/${KERNEL_FOLDER_NAME}/kernel/* /build/opt/kernel
 }
 
 get_packefile(){
 #	svn co ${KERNEL_URL}/opt  >/dev/null 2>&1
+        pwd
+	ls
 	cp -r /build/${KERNEL_FOLDER_NAME}/opt/* /build/opt
 }
 
