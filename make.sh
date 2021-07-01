@@ -7,7 +7,7 @@
 #=====================================================================================
 
 WORK_DIR="${PWD}"
-KERNEL_URL="https://github.com/yogasmart/flippy-packages/trunk"
+KERNEL_URL="https://github.com/yogasmart/package-flippy-openwrt/build/trunk"
 
 # from https://blog.csdn.net/czyt1988/article/details/79110450
 ARGS=`getopt -o t:k:v:w:p:o:l:s: --long types:,kernel:,openwrt:,whoami:,path:,out:,url:sub -- "$@"`
