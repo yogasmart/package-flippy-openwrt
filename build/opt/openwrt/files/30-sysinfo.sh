@@ -106,6 +106,7 @@ critical_load=$(( 1 + $(grep -c processor /proc/cpuinfo) / 2 ))
 # get uptime, logged in users and load in one take
 if [ -x /usr/bin/cpustat ];then
     time=$(/usr/bin/cpustat -u)
+    load=$(/usr/bin/cpustat -l)
 else
     UptimeString=$(uptime | tr -d ',')
     time=$(awk -F" " '{print $3" "$4}' <<<"${UptimeString}")
@@ -159,9 +160,11 @@ echo ""
 
 display "环境温度" "$cpu_tempx" "60" "0" "°C"  ""  
 if [ -x /usr/bin/cpustat ];then
-    cpu_freq=$(/usr/bin/cpustat -F)
+    cpu_freq=$(/usr/bin/cpustat -F1500)
+    echo -n "当前频率:  $cpu_freq"
+else
+    display "当前频率" "$cpu_freq" "1500" "0" " Mhz"  ""  
 fi
-display "当前频率" "$cpu_freq" "1500" "0" " Mhz"  ""  
 echo ""
 
 display "内存已用" "$memory_usage" "70" "0" "%" " of ${memory_total}MB"
