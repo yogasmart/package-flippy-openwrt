@@ -378,15 +378,8 @@ config turboacc 'config'
 EOF
 fi
 
-cd $TGT_ROOT/sbin
-if [ -f mount.ntfs3 ];then
-    ln -sf mount.ntfs3 mount.ntfs
-elif [ -f ../usr/bin/ntfs-3g ];then
-    ln -sf /usr/bin/ntfs-3g mount.ntfs
-fi
-
-[ -f $CPUSTAT_PATCH ] && cd $TGT_ROOT && patch -p1 < ${CPUSTAT_PATCH}
-[ -x "${TGT_ROOT}/usr/bin/perl" ] && [ -f "${CPUSTAT_PATCH_02}" ] && cd ${TGT_ROOT} && patch -p1 < ${CPUSTAT_PATCH_02}
+adjust_ntfs_config
+patch_admin_status_index_html
 
 if [ -f ${UBOOT_BIN} ];then
     mkdir -p $TGT_ROOT/lib/u-boot && cp -v ${UBOOT_BIN} $TGT_ROOT/lib/u-boot

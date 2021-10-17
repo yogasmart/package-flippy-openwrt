@@ -144,9 +144,6 @@ FDT=/dtb/amlogic/meson-g12a-x96-max.dtb
 APPEND=root=UUID=${ROOTFS_UUID} rootfstype=btrfs rootflags=compress=zstd console=ttyAML0,115200n8 console=tty0 no_console_suspend consoleblank=0 fsck.fix=yes fsck.repair=yes net.ifnames=0 cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory swapaccount=1
 EOF
 
-# 替换dtb文件
-[ "$REPLACE_DTB" == "y" ] && [ -f "$DTB_FILE" ] && cp "$DTB_FILE" ./dtb/amlogic/
-
 echo "uEnv.txt --->"
 cat uEnv.txt
 
@@ -422,20 +419,13 @@ UBOOT_OVERLOAD=${UBOOT_WITHOUT_FIP}
 EOF
 fi
 
-cd $TGT_ROOT/sbin
-if [ -f mount.ntfs3 ];then
-    ln -sf mount.ntfs3 mount.ntfs
-elif [ -f ../usr/bin/ntfs-3g ];then
-    ln -sf /usr/bin/ntfs-3g mount.ntfs
-fi
+adjust_ntfs_config
+patch_admin_status_index_html
 
 rm -f ${TGT_ROOT}/etc/bench.log
 cat >> ${TGT_ROOT}/etc/crontabs/root << EOF
 37 5 * * * /etc/coremark.sh
 EOF
-
-[ -f $CPUSTAT_PATCH ] && cd $TGT_ROOT && patch -p1 < ${CPUSTAT_PATCH}
-[ -x "${TGT_ROOT}/usr/bin/perl" ] && [ -f "${CPUSTAT_PATCH_02}" ] && cd ${TGT_ROOT} && patch -p1 < ${CPUSTAT_PATCH_02}
 
 # 创建 /etc 初始快照
 echo "创建初始快照: /etc -> /.snapshots/etc-000"

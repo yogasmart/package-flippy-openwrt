@@ -418,20 +418,13 @@ UBOOT_OVERLOAD=${UBOOT_WITHOUT_FIP}
 EOF
 fi
 
-cd $TGT_ROOT/sbin
-if [ -f mount.ntfs3 ];then
-    ln -sf mount.ntfs3 mount.ntfs
-elif [ -f ../usr/bin/ntfs-3g ];then
-    ln -sf /usr/bin/ntfs-3g mount.ntfs
-fi
+adjust_ntfs_config
+patch_admin_status_index_html
 
 rm -f ${TGT_ROOT}/etc/bench.log
 cat >> ${TGT_ROOT}/etc/crontabs/root << EOF
 37 5 * * * /etc/coremark.sh
 EOF
-
-[ -f $CPUSTAT_PATCH ] && cd $TGT_ROOT && patch -p1 < ${CPUSTAT_PATCH}
-[ -x "${TGT_ROOT}/usr/bin/perl" ] && [ -f "${CPUSTAT_PATCH_02}" ] && cd ${TGT_ROOT} && patch -p1 < ${CPUSTAT_PATCH_02}
 
 # 创建 /etc 初始快照
 echo "创建初始快照: /etc -> /.snapshots/etc-000"
